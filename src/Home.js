@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { CustomDialog } from "react-st-modal";
 
 import Search from "./Search";
 import Loader from "./Loader";
 import Weather from "./Weather";
+import ErrorModal from "./ErrorModal";
 
 function Home() {
   const [city, setCity] = useState("");
@@ -27,13 +29,17 @@ function Home() {
       .then((response) => {
         if (response.status === 200) {
           setWeatherData(response.data);
+          setErr(null);
           setIsLoading(false);
         }
       })
       .catch((err) => {
-        console.log(err);
         setErr(err);
         setIsLoading(false);
+        CustomDialog(<ErrorModal />, {
+          title: "Error",
+          showCloseIcon: true,
+        });
       });
   };
 
