@@ -11,6 +11,7 @@ const Search = ({ changeCityName, searchHandler }) => {
             onChange={(e) => {
               changeCityName(e.target.value);
             }}
+            onSubmit={searchHandler}
           />
           <label htmlFor="first_name">City Name</label>
         </div>

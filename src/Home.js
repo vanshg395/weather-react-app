@@ -18,7 +18,7 @@ function Home() {
     setCity(city);
   };
 
-  const getWeatherData = () => {
+  const getWeatherData = (e) => {
     setIsLoading(true);
     axios
       .get(
