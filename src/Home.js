@@ -22,7 +22,7 @@ function Home() {
     setIsLoading(true);
     axios
       .get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=182f64186d901bf6304b0b4bbbe1264d&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=182f64186d901bf6304b0b4bbbe1264d&units=metric`
       )
       .then((response) => {
         if (response.status === 200) {
